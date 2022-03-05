@@ -65,13 +65,19 @@ const Result = () => {
   if (weather.length > 0) {
     weather.forEach((value) => {
       if (weatherDataForPeriod.length < 8) {
+        const dt_txt_date = new Date(value.dt_txt);
+        const dt_txt_month = (dt_txt_date.getMonth() + 1).toString();
+        const dt_txt_day = dt_txt_date.getDate().toString();
+        const dt_txt_hour = dt_txt_date.getHours().toString();
         const dt_txt =
-          value.dt_txt.substring(5, 7) +
-          "月" +
-          value.dt_txt.substring(8, 10) +
-          "日" +
-          value.dt_txt.substring(11, 13) +
-          "時";
+          dt_txt_month + "月" + dt_txt_day + "日" + dt_txt_hour + "時";
+        // const dt_txt =
+        //   value.dt_txt.substring(5, 7) +
+        //   "月" +
+        //   value.dt_txt.substring(8, 10) +
+        //   "日" +
+        //   value.dt_txt.substring(11, 13) +
+        //   "時";
 
         let mainWeather = "";
 
